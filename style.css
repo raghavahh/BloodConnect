@@ -1,0 +1,177 @@
+/* Global Styling */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+  line-height: 1.5;
+}
+
+/* Theme Colors */
+:root {
+  --bg: #ffffff;
+  --text: #222222;
+  --card: #f7f7f7;
+  --primary: #e63946;
+  --success: #06d6a0;
+  --danger: #d90429;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;
+    --text: #f1f1f1;
+    --card: #1e1e1e;
+  }
+}
+
+/* Header */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+}
+
+/* Navigation */
+nav {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+/* Layout */
+main {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 1rem;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 1.2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  max-width: 100%;         /* Prevent overflow */
+  word-wrap: break-word;   /* Break long words */
+  white-space: normal;     /* Allow wrapping */
+  box-sizing: border-box;
+}
+
+.btn:hover { opacity: 0.9; }
+
+.btn.danger {
+  background: var(--danger);
+}
+
+/* Alerts */
+.alert {
+  border-left: 6px solid var(--danger);
+  padding-left: 1rem;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+form input,
+form select,
+button {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/*
+   RESPONSIVE DESIGN
+*/
+
+/* Mobiles (≤599px) */
+@media (max-width: 599px) {
+  main {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;       /* Full width */
+    font-size: 0.9rem; /* Slightly smaller text */
+    padding: 0.8rem;   /* Larger touch target */
+  }
+}
+
+/* Tablets (600px–899px) */
+@media (min-width: 600px) and (max-width: 899px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktops (≥900px) */
+@media (min-width: 900px) {
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+}
